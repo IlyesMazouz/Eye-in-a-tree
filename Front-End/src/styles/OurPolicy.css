@@ -1,0 +1,50 @@
+.policy-separator {
+    width: 100%;
+    height: 1px;
+    background-color: #ddd;
+    margin-bottom: 2rem;
+}
+
+.policy-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 3rem;
+    text-align: center;
+    padding: 5rem 0;
+    font-size: 0.75rem;
+    color: #4b5563;
+}
+
+@media (min-width: 640px) {
+    .policy-container {
+        flex-direction: row;
+        gap: 0.5rem;
+        font-size: 0.875rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .policy-container {
+        font-size: 1rem;
+    }
+}
+
+.policy-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.policy-icon {
+    width: 3rem;
+    margin-bottom: 1.25rem;
+}
+
+.policy-title {
+    font-weight: 600;
+}
+
+.policy-description {
+    color: #9ca3af;
+}

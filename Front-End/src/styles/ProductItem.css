@@ -1,0 +1,40 @@
+.product-item-link {
+    color: #374151;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    max-width: fit-content;
+}
+
+.product-image-container {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    max-width: 100%;
+}
+
+.product-image {
+    transition: transform 0.3s ease-in-out;
+    width: 100%;
+    height: auto;
+}
+
+.product-image:hover {
+    transform: scale(1.2);
+}
+
+.product-name {
+    padding-top: 0.75rem;
+    padding-bottom: 0.25rem;
+    font-size: 0.875rem;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.product-price {
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-align: center;
+}

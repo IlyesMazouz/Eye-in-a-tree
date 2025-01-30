@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Prata&display=swap');
+
+body {
+  font-family: 'Outfit', sans-serif;
+}
+
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #d1d5db;
+}
+
+@media (min-width: 640px) {
+  .hero-container {
+    flex-direction: row;
+  }
+}
+
+.hero-left {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem 0;
+}
+
+@media (min-width: 640px) {
+  .hero-left {
+    width: 50%;
+    padding: 0;
+  }
+}
+
+.hero-heading {
+  font-family: 'Prata', serif;
+  font-size: 1.875rem;
+  line-height: 1.75;
+}
+
+@media (min-width: 1024px) {
+  .hero-heading {
+    font-size: 3.125rem;
+    padding-top: 0.75rem;
+  }
+}
+
+.hero-action {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.shop-now {
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+@media (min-width: 768px) {
+  .shop-now {
+    font-size: 1rem;
+  }
+}
+
+.separator {
+  width: 2rem;
+  height: 1px;
+  background-color: black;
+}
+
+@media (min-width: 768px) {
+  .separator {
+    width: 2.75rem;
+  }
+}
+
+.product-image {
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .product-image {
+    width: 50%;
+  }
+}
+
+.hero-welcome {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.hero-welcome-text {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.hero-subtext {
+  width: 75%;
+  margin: 0 auto;
+  font-size: 0.75rem;
+  color: #4B5563;
+  margin-top: 1rem;
+}
+
+@media (min-width: 640px) {
+  .hero-subtext {
+    font-size: 0.875rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-subtext {
+    font-size: 1rem;
+  }
+}

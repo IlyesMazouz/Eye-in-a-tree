@@ -1,0 +1,56 @@
+.latest-collection-container {
+	margin-top: 2.5rem;
+	margin-bottom: 2.5rem;
+  }
+  
+  .title-section {
+	text-align: center;
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+	font-size: 1.875rem;
+  }
+  
+  .description {
+	width: 75%;
+	margin: 0 auto;
+	font-size: 0.75rem;
+	color: #4B5563;
+  }
+  
+  @media (min-width: 640px) {
+	.description {
+	  font-size: 0.875rem;
+	}
+  }
+  
+  @media (min-width: 768px) {
+	.description {
+	  font-size: 1rem;
+	}
+  }
+  
+  .product-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1rem;
+	row-gap: 1.5rem;
+  }
+  
+  @media (min-width: 640px) {
+	.product-grid {
+	  grid-template-columns: repeat(3, 1fr);
+	}
+  }
+  
+  @media (min-width: 768px) {
+	.product-grid {
+	  grid-template-columns: repeat(4, 1fr);
+	}
+  }
+  
+  @media (min-width: 1024px) {
+	.product-grid {
+	  grid-template-columns: repeat(5, 1fr);
+	}
+  }
+  

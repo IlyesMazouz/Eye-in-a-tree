@@ -1,0 +1,141 @@
+.navbar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 20px 0;
+	font-weight: 500;
+	position: relative;
+	border-bottom: 1px solid #ddd;
+  }
+  
+  .logo {
+	width: 120px;
+  }
+  
+  .ul1 {
+	display: flex;
+	gap: 20px;
+	font-size: 14px;
+	color: #4b5563;
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	justify-content: center;
+	flex-grow: 1;
+  }
+  
+  .ul1 li {
+	text-align: center;
+  }
+  
+  .navlink {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 4px;
+	text-decoration: none;
+	color: inherit;
+  }
+  
+  .navlink-line {
+	width: 50%;
+	height: 1.5px;
+	background-color: #4b5563;
+	border: none;
+	margin: 0;
+  }
+  
+  .search-icon {
+	width: 1.5rem;
+	height: 1.5rem;
+	cursor: pointer;
+  }
+  
+  .group {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+	justify-content: flex-end;
+  }
+  
+  .cart-link {
+	position: relative;
+  }
+  
+  .cart-icon {
+	width: 1.5rem;
+	height: 1.5rem;
+	cursor: pointer;
+  }
+  
+  .user-icon-container {
+	position: relative;
+  }
+  
+  .profile-icone {
+	width: 1.5rem;
+	height: 1.5rem;
+	cursor: pointer;
+  }
+  
+  .dropdown-menu {
+	display: none;
+	position: absolute;
+	top: 100%;
+	right: 0;
+	padding-top: 16px;
+  }
+  
+  .user-icon-container:hover .dropdown-menu {
+	display: block;
+  }
+  
+  .dropdown-content {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	width: 144px;
+	padding: 12px 20px;
+	background-color: #f1f5f9;
+	color: #6b7280;
+	border-radius: 8px;
+  }
+  
+  .dropdown-item {
+	cursor: pointer;
+	transition: color 0.3s;
+  }
+  
+  .dropdown-item:hover {
+	color: black;
+  }
+  
+  .cart-badge {
+	position: absolute;
+	right: -5px;
+	bottom: -5px;
+	width: 16px;
+	height: 16px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: black;
+	color: white;
+	border-radius: 50%;
+	font-size: 8px;
+	line-height: 1;
+  }
+  
+  .menu-icon {
+	width: 1.25rem;
+	height: 1.25rem;
+	cursor: pointer;
+	margin-left: 10px;
+  }
+  
+  @media (min-width: 640px) {
+	.menu-icon {
+	  display: block;
+	}
+  }
+  
