@@ -7,7 +7,7 @@ import '../styles/Product.css'
 const Product = () => {
 
   const { productId } = useParams();
-  const { products, currency } = useContext(ShopContext);
+  const { products, currency, addToCart } = useContext(ShopContext);
   const [productData, setProductData] = useState(false);
   const [image, setImage] = useState('')
 
@@ -54,7 +54,7 @@ const Product = () => {
 		  </ul>
         </div>
 		<div>
-			<button className="add-to-cart">ADD TO CART</button>
+			<button onClick={()=>addToCart(productData._id)} className="add-to-cart">ADD TO CART</button>
 		</div>
       </div>
     </div>
