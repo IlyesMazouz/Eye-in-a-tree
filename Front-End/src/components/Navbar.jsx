@@ -1,10 +1,14 @@
 // Navbar component provides navigation links, logo, cart, and user profile options
-import React from 'react'
+import React, { useContext } from 'react'
 import { assets } from '../assets/assets'
 import '../styles/Navbar.css'
 import { Link, NavLink } from 'react-router-dom'
+import { ShopContext } from '../context/ShopContext';
 
 const Navbar = () => {
+
+  const {getCartCount} = useContext(ShopContext);
+
   return (
     <div className="navbar">
       <Link to={'/'}>
@@ -43,7 +47,7 @@ const Navbar = () => {
       <div className="group">
         <Link to="/cart" className="cart-link">
           <img src={assets.cart_icone} className="cart-icon" alt="Cart" />
-          <p className="cart-badge">10</p>
+          <p className="cart-badge">{getCartCount()}</p>
         </Link>
 
         <div className="user-icon-container">
