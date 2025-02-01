@@ -1,0 +1,32 @@
+.cart-total-container {
+	max-width: 350px; 
+	margin-top: 2rem;
+	margin-left: auto; 
+	padding: 1rem;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	background: #fff;
+  }
+  
+  .cart-total-title {
+	font-size: 1.5rem;
+	text-align: center;
+  }
+  
+  .cart-total-details {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	margin-top: 0.5rem;
+	font-size: 0.875rem;
+  }
+  
+  .cart-total-row {
+	display: flex;
+	justify-content: space-between;
+  }
+  
+  .cart-total-final {
+	font-weight: bold;
+  }
+  
