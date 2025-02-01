@@ -45,7 +45,7 @@ const Product = () => {
 
         <div className="product-details">
           <h1 className="product-title">{productData.name}</h1>
-          <p className="product-price-page">{currency}{productData.price}</p>
+          <p className="product-price-page">{productData.price}{currency}</p>
           <p className="product-description">{productData.description}</p>
 		  <ul>
 			<li>100% Handmade</li>
