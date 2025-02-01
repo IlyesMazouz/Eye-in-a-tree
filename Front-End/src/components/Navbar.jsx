@@ -3,7 +3,7 @@ import React, { useContext } from 'react'
 import { assets } from '../assets/assets'
 import '../styles/Navbar.css'
 import { Link, NavLink } from 'react-router-dom'
-import { ShopContext } from '../context/ShopContext';
+import { ShopContext } from '../context/ShopContext'
 
 const Navbar = () => {
 
@@ -51,7 +51,7 @@ const Navbar = () => {
         </Link>
 
         <div className="user-icon-container">
-          <img className="profile-icone" src={assets.user_icone} alt="Profile" />
+          <Link to='login'><img className="profile-icone" src={assets.user_icone} alt="Profile" /></Link>
           <div className="dropdown-menu">
             <div className="dropdown-content">
               <p className="dropdown-item">My Profile</p>
