@@ -1,6 +1,7 @@
 // ShopContextProvider manages the shop's context, providing access to products, currency, and delivery fee
 import { createContext, useEffect, useState } from "react"
 import { products } from "../assets/assets"
+import { useNavigate } from "react-router-dom"
 
 export const ShopContext = createContext();
 
@@ -8,6 +9,7 @@ const ShopContextProvider = (props) => {
 	const currency = 'TND';
 	const delivery_fee = 10;
 	const [cartItems,setCartItems] = useState({});
+	const navigate = useNavigate();
 
 	const addToCart = async (itemId) => {
 		let cartData = structuredClone(cartItems);
@@ -41,9 +43,28 @@ const ShopContextProvider = (props) => {
 		return totalCount;
 	}
 
+	const updateQuantity = async (itemId,quantity) => {
+		let cartData = structuredClone(cartItems);
+		cartData[itemId] = quantity;
+		setCartItems(cartData);
+	}
+
+	const getCartAmount = () => {
+		let totalAmount = 0;
+		for (const itemId in cartItems) {
+			let itemInfo = products.find((product) => product._id === itemId);
+			if (itemInfo) {
+				totalAmount += itemInfo.price * cartItems[itemId];  // Correct multiplication
+			}
+		}
+		return totalAmount;
+	};
+	
+
 	const value = {
 		products, currency, delivery_fee,
-		cartItems, addToCart, getCartCount
+		cartItems, addToCart, getCartCount,
+		updateQuantity, getCartAmount,navigate
 	}
 
 	return (
