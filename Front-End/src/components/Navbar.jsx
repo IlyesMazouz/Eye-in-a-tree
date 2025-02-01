@@ -8,6 +8,7 @@ import { ShopContext } from '../context/ShopContext'
 const Navbar = () => {
 
   const {getCartCount} = useContext(ShopContext);
+  const {setShowSearch} = useContext(ShopContext);
 
   return (
     <div className="navbar">
@@ -42,7 +43,7 @@ const Navbar = () => {
         </li>
       </ul>
 
-      <img src={assets.search_icon} className="search-icon" alt="search" />
+      <img onClick={()=>setShowSearch(true)} src={assets.search_icon} className="search-icon" alt="search" />
 
       <div className="group">
         <Link to="/cart" className="cart-link">
