@@ -2,9 +2,11 @@ import React, { useContext, useEffect, useState } from 'react';
 import { ShopContext } from '../context/ShopContext';
 import Title from '../components/Title';
 import '../styles/Cart.css';
+import { assets } from '../assets/assets';
+import CartTotal from '../components/CartTotal';
 
 const Cart = () => {
-  const { products, currency, cartItems } = useContext(ShopContext);
+  const { products, currency, cartItems, updateQuantity, navigate } = useContext(ShopContext);
   const [cartData, setCartData] = useState([]);
 
   useEffect(() => {
@@ -39,11 +41,22 @@ const Cart = () => {
                   </div>
                 </div>
               </div>
-              <input className="cart-item-quantity" type='number' min={1} defaultValue={item.quantity} />
+              <input onChange={(e)=> e.target.value === '' || e.target.value === '0' ? null : updateQuantity(item._id,Number(e.target.value))} className="cart-item-quantity" type='number' min={1} defaultValue={item.quantity} />
+              <img onClick={()=>updateQuantity(item._id,0)} className="image-bin" src={assets.bin_icone} alt="Delete Icon" />
             </div>
           );
         })}
       </div>
+      <div className="cart-total-container">
+  <div className="cart-total">
+    <CartTotal />
+    <div class="checkout-container">
+    <button onClick={()=>navigate('/place-order')} class="checkout-button">PROCEED TO CHECKOUT</button>
+</div>
+
+  </div>
+</div>
+
     </div>
   );
 };
