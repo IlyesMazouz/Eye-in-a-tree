@@ -7,6 +7,9 @@ import menuPNG from './menu.PNG'
 import exchangePNG from './exchange.PNG'
 import returnPNG from './return.PNG'
 import customerPNG from './customer.PNG'
+import crossPNG from './cross.PNG'
+import aboutavif from './about.avif'
+import contactavif from './contact.avif'
 import binPNG from './bin.PNG'
 import onePNG from './one.PNG'
 import twoPNG from './two.PNG'
@@ -59,6 +62,9 @@ export const assets = {
 	return_icone: returnPNG,
 	customer_icone: customerPNG,
 	bin_icone: binPNG,
+	cross_icone: crossPNG,
+	about_image: aboutavif,
+	contact_image: contactavif,
 	nineteen_product: nineteenPNG,
 }
 export const products = [
