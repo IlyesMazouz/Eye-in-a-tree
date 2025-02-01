@@ -1,9 +1,9 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { ShopContext } from '../context/ShopContext';
-import Title from '../components/Title';
-import '../styles/Cart.css';
-import { assets } from '../assets/assets';
-import CartTotal from '../components/CartTotal';
+import React, { useContext, useEffect, useState } from 'react'
+import { ShopContext } from '../context/ShopContext'
+import Title from '../components/Title'
+import '../styles/Cart.css'
+import { assets } from '../assets/assets'
+import CartTotal from '../components/CartTotal'
 
 const Cart = () => {
   const { products, currency, cartItems, updateQuantity, navigate } = useContext(ShopContext);
@@ -37,7 +37,7 @@ const Cart = () => {
                 <div>
                   <p className="cart-item-name">{productData.name}</p>
                   <div className="cart-item-price-container">
-                    <p>{currency}{productData.price}</p>
+                    <p>{productData.price}{currency}</p>
                   </div>
                 </div>
               </div>
