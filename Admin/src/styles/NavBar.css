@@ -1,0 +1,27 @@
+.navbar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 8px 4%; 
+  }
+  
+  .logo {
+	width: 120px;
+  }
+  
+  .logout-button {
+	background-color: #4b5563; 
+	color: white;
+	padding: 8px 20px;
+	border-radius: 9999px;
+	font-size: 12px;
+  }
+  
+  @media (min-width: 640px) {
+	.logout-button {
+	  padding-left: 20px;
+	  padding-right: 20px;
+	  font-size: 14px;
+	}
+  }
+  
