@@ -1,0 +1,42 @@
+.sidebar-menu {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	padding-top: 24px; 
+	padding-left: 8%;
+	font-size: 15px; 
+	min-height: 100vh; 
+	border-right: 2px solid #e5e7eb; 
+  }
+  
+  .nav-link {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	border: 1px solid #d1d5db;
+	border-right: 0;
+	padding: 8px 12px;
+	border-radius: 4px;
+	text-decoration: none;
+	color: inherit;
+  }
+  
+  .icon {
+	width: 20px;
+	height: 20px;
+  }
+  
+  .nav-text {
+	display: none;
+  }
+  
+  .nav-link.active {
+	background-color: #d1d5db;
+  }
+
+  @media (min-width: 768px) {
+	.nav-text {
+	  display: block;
+	}
+  }
+  
