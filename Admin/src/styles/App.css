@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Prata&display=swap');
+
+*{
+	font-family: outfit;
+}
+
+.app-container {
+	display: flex;
+	flex-direction: column;
+	background-color: #f9fafb; 
+	min-height: 100vh; 
+  }
+  
+  .content {
+	display: flex;
+	width: 100%;
+  }
+  
+  .main-content {
+	width: 70%;
+	margin: 32px auto 0 5vw;
+	color: #4b5563; 
+	font-size: 16px; 
+  }
