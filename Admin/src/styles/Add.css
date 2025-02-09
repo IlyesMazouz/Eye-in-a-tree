@@ -1,0 +1,106 @@
+.dashboard-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	background-color: #f4f4f4;
+  }
+  
+  .form-card {
+	background: #fff;
+	padding: 40px;
+	border-radius: 12px;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+	width: 500px;
+	text-align: center;
+  }
+  
+  .form-title {
+	font-size: 24px;
+	font-weight: 600;
+	color: #333;
+	margin-bottom: 25px;
+  }
+  
+  .input-group {
+	margin-bottom: 20px;
+	text-align: left;
+  }
+  
+  .label {
+	font-size: 16px;
+	font-weight: 500;
+	color: #444;
+	margin-bottom: 6px;
+  }
+  
+  .input-field {
+	width: 100%;
+	padding: 12px;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+	font-size: 16px;
+	transition: 0.3s ease;
+  }
+  
+  .input-field:focus {
+	border-color: gray;
+	outline: none;
+  }
+  
+  .description-field {
+	height: 100px;
+	resize: none;
+  }
+  
+  .category-container {
+	display: flex;
+	justify-content: space-between;
+  }
+  
+  .category-container div {
+	width: 48%;
+  }
+  
+  .image-upload {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: dashed #ccc;
+	width: 100%;
+	cursor: pointer;
+	border-radius: 8px;
+	transition: 0.3s ease;
+
+  }
+  
+  .image-upload:hover {
+	border-color: gray;
+  }
+  
+  .upload-icon {
+	width: 50px;
+  }
+  
+  .preview-img {
+	width: 40%;
+	border-radius: 8px;
+  }
+  
+  .submit-button {
+	width: 100%;
+	padding: 14px;
+	font-size: 18px;
+	font-weight: 600;
+	background: black;
+	color: white;
+	border: none;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: 0.3s ease;
+  }
+  
+  .submit-button:hover {
+	background: gray;
+  }
+  
