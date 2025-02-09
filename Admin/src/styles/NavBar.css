@@ -2,7 +2,9 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding: 8px 4%; 
+	padding: 8px 4%;
+	border-bottom: 2px solid #ddd; 
+	background-color: #fff; 
   }
   
   .logo {
