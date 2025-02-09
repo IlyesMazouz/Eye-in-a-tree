@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import { assets } from "../assets/assets"
 import axios from 'axios'
 import { backendUrl } from '../App'
+import { toast } from 'react-toastify'
 import "../styles/Add.css"
 
 const Add = ({ token }) => {
@@ -24,29 +25,29 @@ const Add = ({ token }) => {
     e.preventDefault();
 
     try {
-      const fromData = new FormData();
-      fromData.append("name", name);
-      fromData.append("description", description);
-      fromData.append("price", price);
-      fromData.append("category", category);
-      fromData.append("subCategory", subCategory);
+      const formData = new FormData();
+      formData.append("name", name);
+      formData.append("description", description);
+      formData.append("price", price);
+      formData.append("category", category);
+      formData.append("subCategory", subCategory);
 
-      if (image1) fromData.append("image1", image1);
+      if (image1) formData.append("image1", image1);
 
-      const response = await axios.post(backendUrl + "/api/product/add", fromData, { headers: { token } });
-
-		 console.log(response.data);
+      const response = await axios.post(backendUrl + "/api/product/add", formData, { headers: { token } });
 
       if (response.data.success) {
         setName('');
         setDescription('');
         setImage1(null);
         setPrice('');
+        toast.success("Product added successfully!");
       } else {
-		console.log(error);
-	}
+        toast.error(response.data.message || "Failed to add product.");
+      }
     } catch (error) {
       console.log(error);
+      toast.error("An error occurred while adding the product.");
     }
   };
 
