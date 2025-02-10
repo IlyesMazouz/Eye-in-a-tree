@@ -14,10 +14,12 @@ import Navbar from './components/Navbar'
 import './styles/App.css'
 import Footer from './components/Footer'
 import SearchBar from './components/SearchBar'
+import { ToastContainer } from 'react-toastify'
 
 const App = () => {
   return (
     <div className="app-container">
+      <ToastContainer />
       <Navbar />
       <SearchBar />
       <Routes>
