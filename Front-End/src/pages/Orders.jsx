@@ -1,10 +1,42 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { ShopContext } from '../context/ShopContext'
 import Title from '../components/Title'
 import '../styles/Orders.css'
+import axios from 'axios';
 
 const Orders = () => {
-  const { products, currency } = useContext(ShopContext);
+  const { backendUrl, token, currency } = useContext(ShopContext);
+
+  const [orderData,setorderData] = useState([])
+
+  const loadOrderData = async () => {
+    try {
+      if (!token) {
+          return null
+      } 
+
+      const response = await axios.post(backendUrl + '/api/order/userorders',{},{headers:{token}})
+      if (response.data.success) {
+        let allOrdersItem = []
+        response.data.orders.map((order)=> {
+          order.items.map((item)=> {
+            item['status'] = order.status
+            item['payment'] = order.payment
+            item['paymentMethod'] = order.paymentMethod
+            item['date'] = order.date
+            allOrdersItem.push(item)
+          })
+        })
+        setorderData(allOrdersItem.reverse());
+      }
+    } catch (error) {
+      
+    }
+  }
+
+  useEffect(()=> {
+    loadOrderData()
+  },[token])
 
   return (
     <div className="orders-container">
@@ -12,7 +44,7 @@ const Orders = () => {
         <Title text1={'MY'} text2={'ORDERS'} />
       </div>
 	  <div className="orders-list">
-  {products.slice(1, 4).map((item, index) => (
+  {orderData.map((item, index) => (
     <div key={index} className="order-item">
       <div className="order-details">
         <img className="order-image" src={item.image[0]} alt="Product" />
@@ -20,10 +52,13 @@ const Orders = () => {
   <p className="order-name">{item.name}</p>
   <div className="order-details">
     <p className="order-price">{item.price}{currency}</p>
-    <p>Quantity: 1</p>
+    <p>Quantity: {item.quantity}</p>
   </div>
   <p className="order-date">
-    Date: <span>5, Feb, 2025</span>
+    Date: <span>{new Date(item.date).toDateString()}</span>
+  </p>
+  <p className="order-date">
+    Payment: <span>{item.paymentMethod}</span>
   </p>
 </div>
 
@@ -31,10 +66,10 @@ const Orders = () => {
       <div className="order-status">
   <div className="status-indicator">
     <p className="status-dot"></p>
-    <p className="status-text">Ready to ship</p>
+    <p className="status-text">{item.status}</p>
   </div>
 </div>
-<button className='track-button'>Track Order</button>
+<button onClick={loadOrderData} className='track-button'>Track Order</button>
     </div>
   ))}
 </div>
