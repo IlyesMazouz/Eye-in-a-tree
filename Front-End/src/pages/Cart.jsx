@@ -1,26 +1,31 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { ShopContext } from '../context/ShopContext'
-import Title from '../components/Title'
-import '../styles/Cart.css'
-import { assets } from '../assets/assets'
-import CartTotal from '../components/CartTotal'
+import React, { useContext, useEffect, useState } from 'react';
+import { ShopContext } from '../context/ShopContext';
+import Title from '../components/Title';
+import '../styles/Cart.css';
+import { assets } from '../assets/assets';
+import CartTotal from '../components/CartTotal';
 
 const Cart = () => {
   const { products, currency, cartItems, updateQuantity, navigate } = useContext(ShopContext);
   const [cartData, setCartData] = useState([]);
 
   useEffect(() => {
+    if (!products || products.length === 0) return;
+
     const tempData = [];
-    for (const items in cartItems) {
-      if (cartItems[items] > 0) {
-        tempData.push({
-          _id: items,
-          quantity: cartItems[items],
-        });
+    for (const item in cartItems) {
+      if (cartItems[item] > 0) {
+        const productExists = products.some((product) => product._id === item);
+        if (productExists) {
+          tempData.push({
+            _id: item,
+            quantity: cartItems[item],
+          });
+        } 
       }
     }
     setCartData(tempData);
-  }, [cartItems]);
+  }, [cartItems, products, updateQuantity]);
 
   return (
     <div className="cart-container">
@@ -30,6 +35,9 @@ const Cart = () => {
       <div>
         {cartData.map((item, index) => {
           const productData = products.find((product) => product._id === item._id);
+
+          if (!productData) return null; 
+
           return (
             <div key={index} className="cart-item">
               <div className="cart-item-details">
@@ -41,22 +49,37 @@ const Cart = () => {
                   </div>
                 </div>
               </div>
-              <input onChange={(e)=> e.target.value === '' || e.target.value === '0' ? null : updateQuantity(item._id,Number(e.target.value))} className="cart-item-quantity" type='number' min={1} defaultValue={item.quantity} />
-              <img onClick={()=>updateQuantity(item._id,0)} className="image-bin" src={assets.bin_icone} alt="Delete Icon" />
+              <input 
+                onChange={(e) => 
+                  e.target.value === '' || e.target.value === '0' 
+                    ? null 
+                    : updateQuantity(item._id, Number(e.target.value))
+                } 
+                className="cart-item-quantity" 
+                type="number" 
+                min={1} 
+                defaultValue={item.quantity} 
+              />
+              <img 
+                onClick={() => updateQuantity(item._id, 0)} 
+                className="image-bin" 
+                src={assets.bin_icone} 
+                alt="Delete Icon" 
+              />
             </div>
           );
         })}
       </div>
       <div className="cart-total-container">
-  <div className="cart-total">
-    <CartTotal />
-    <div class="checkout-container">
-    <button onClick={()=>navigate('/place-order')} class="checkout-button">PROCEED TO CHECKOUT</button>
-</div>
-
-  </div>
-</div>
-
+        <div className="cart-total">
+          <CartTotal />
+          <div className="checkout-container">
+            <button onClick={() => navigate('/place-order')} className="checkout-button">
+              PROCEED TO CHECKOUT
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
