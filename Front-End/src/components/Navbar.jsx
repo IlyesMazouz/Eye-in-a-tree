@@ -7,8 +7,14 @@ import { ShopContext } from '../context/ShopContext'
 
 const Navbar = () => {
 
-  const {getCartCount} = useContext(ShopContext);
-  const {setShowSearch} = useContext(ShopContext);
+  const {setShowSearch, getCartCount, navigate, token, setToken, setCartItems} = useContext(ShopContext);
+
+  const logout = () => {
+    navigate('/login')
+   localStorage.removeItem('token')
+   setToken('')
+   setCartItems({})
+  }
 
   return (
     <div className="navbar">
@@ -56,8 +62,8 @@ const Navbar = () => {
           <div className="dropdown-menu">
             <div className="dropdown-content">
               <p className="dropdown-item">My Profile</p>
-              <p className="dropdown-item">Orders</p>
-              <p className="dropdown-item">Logout</p>
+              <p onClick={()=>navigate('/orders')} className="dropdown-item">Orders</p>
+              <p onClick={logout} className="dropdown-item">Logout</p>
             </div>
           </div>
         </div>
