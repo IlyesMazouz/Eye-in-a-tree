@@ -33,24 +33,26 @@ const Collection = () => {
   }
 
   const applyFilter = () => {
-
     let productsCopy = products.slice();
 
     if (showSearch && search) {
-      productsCopy = productsCopy.filter(item => item.name.toLowerCase().includes(search.toLowerCase()))
+      productsCopy = productsCopy.filter(item => item.name.toLowerCase().includes(search.toLowerCase()));
     }
 
     if (category.length > 0) {
-      productsCopy = productsCopy.filter(item => category.includes(item.category));
-    }
+      productsCopy = productsCopy.filter(item => 
+          item.category.some(c => category.map(cat => cat.toLowerCase()).includes(c.toLowerCase()))
+      );
+  }
+  
+  
 
     if (subCategory.length > 0) {
-      productsCopy = productsCopy.filter(item => subCategory.includes(item.subCategory));
+      productsCopy = productsCopy.filter(item => subCategory.some(sc => item.subCategory.includes(sc)));
     }
 
-    setFilterProducts(productsCopy)
-
-  }
+    setFilterProducts(productsCopy);
+}
 
   useEffect(()=> {
     applyFilter();
