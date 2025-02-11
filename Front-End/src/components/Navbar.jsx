@@ -1,20 +1,19 @@
-// Navbar component provides navigation links, logo, cart, and user profile options
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { assets } from '../assets/assets'
 import '../styles/Navbar.css'
 import { Link, NavLink } from 'react-router-dom'
 import { ShopContext } from '../context/ShopContext'
 
 const Navbar = () => {
-
-  const {setShowSearch, getCartCount, navigate, token, setToken, setCartItems} = useContext(ShopContext);
+  const { setShowSearch, getCartCount, navigate, token, setToken, setCartItems } = useContext(ShopContext);
+  const [menuOpen, setMenuOpen] = useState(false); 
 
   const logout = () => {
-    navigate('/login')
-   localStorage.removeItem('token')
-   setToken('')
-   setCartItems({})
-  }
+    navigate('/login');
+    localStorage.removeItem('token');
+    setToken('');
+    setCartItems({});
+  };
 
   return (
     <div className="navbar">
@@ -49,7 +48,7 @@ const Navbar = () => {
         </li>
       </ul>
 
-      <img onClick={()=>setShowSearch(true)} src={assets.search_icon} className="search-icon" alt="search" />
+      <img onClick={() => setShowSearch(true)} src={assets.search_icon} className="search-icon" alt="search" />
 
       <div className="group">
         <Link to="/cart" className="cart-link">
@@ -58,22 +57,32 @@ const Navbar = () => {
         </Link>
 
         <div className="user-icon-container">
-          <Link to='login'><img className="profile-icone" src={assets.user_icone} alt="Profile" /></Link>
+          <Link to='/login'><img className="profile-icone" src={assets.user_icone} alt="Profile" /></Link>
           <div className="dropdown-menu">
             <div className="dropdown-content">
               <p className="dropdown-item">My Profile</p>
-              <p onClick={()=>navigate('/orders')} className="dropdown-item">Orders</p>
+              <p onClick={() => navigate('/orders')} className="dropdown-item">Orders</p>
               <p onClick={logout} className="dropdown-item">Logout</p>
             </div>
           </div>
         </div>
 
-        <img
-          src={assets.menu_icone}
-          className="menu-icon"
-          alt="Menu"
-          style={{ display: 'block' }}
-        />
+        <div className="menu-container">
+          <img
+            src={assets.menu_icone}
+            className="menu-icon"
+            alt="Menu"
+            onClick={() => setMenuOpen(!menuOpen)}
+          />
+          {menuOpen && (
+            <div className="menu-dropdown">
+              <NavLink to="/" className="menu-item" onClick={() => setMenuOpen(false)}>HOME</NavLink>
+              <NavLink to="/collection" className="menu-item" onClick={() => setMenuOpen(false)}>COLLECTION</NavLink>
+              <NavLink to="/about" className="menu-item" onClick={() => setMenuOpen(false)}>ABOUT</NavLink>
+              <NavLink to="/contact" className="menu-item" onClick={() => setMenuOpen(false)}>CONTACT</NavLink>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
