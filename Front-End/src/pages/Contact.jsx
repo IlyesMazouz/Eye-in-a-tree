@@ -23,7 +23,8 @@ const Contact = () => {
           <h2 className="contact-heading">Get in Touch</h2>
           <p className="contact-info">
             Tel: <a href="tel:+21620529911">(+216) 20 529 911</a> <br />
-            Email: <a href="mailto:Eyeinatree@gmail.com">Eyeinatree@gmail.com</a>
+            Email: <a href="mailto:Eyeinatree@gmail.com">Eyeinatree@gmail.com</a> <br/>
+            Instagram: <a href="https://www.instagram.com/_eyeinatree_/" target="_blank" rel="noopener noreferrer">_eyeinatree_</a>
           </p>
 
           <h2 className="contact-heading">Business Hours</h2>
