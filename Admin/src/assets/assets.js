@@ -3,7 +3,7 @@ import addPNG from './add.PNG'
 import listPNG from './list.PNG'
 import ordersPNG from './orders.PNG'
 import uploadPNG from './upload.PNG'
-
+import parcelPNG from './parcel.PNG'
 
 export const assets = {
 	logo: logoPNG,
@@ -11,4 +11,5 @@ export const assets = {
 	list_icone: listPNG,
 	orders_icone: ordersPNG,
 	upload_icone: uploadPNG,
+	parcel_icone: parcelPNG
 }
